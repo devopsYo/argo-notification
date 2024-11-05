@@ -15,9 +15,15 @@ data:
           Application {{ .app.metadata.name }} has been successfully synced!
         title: Application Sync Notification
         recipients:
-          - recipient@example.com  # Remplacez par votre adresse e-mail
+          - yoellevy93@gmail.com
         smtp:
           host: smtp.gmail.com
           port: 587
-          user: <YOUR_SMTP_USER>  # Votre adresse e-mail
-          password: <YOUR_SMTP_PASSWORD>  # Votre mot de passe
+          user: 
+            secretRef:
+              name: email-secret
+              key: smtp-username
+          password: 
+            secretRef:
+              name: email-secret
+              key: smtp-password
